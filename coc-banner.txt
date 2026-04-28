@@ -1,0 +1,29 @@
+
+╔══════════════════════════════════════════════════════════════════════════════╗
+║                                                                              ║
+║          X Y B E R S E A N   ·   C O D E   O F   C O N D U C T               ║
+║                                                                              ║
+║  You are connecting to a XYBERSEAN system. This is not a public host.        ║
+║  Access here is superuser-equivalent across the entire fleet — the boxes,    ║
+║  the vaults, the memory, the people's data they touch. That is a lot of      ║
+║  power. It comes with a duty you do not get to opt out of.                   ║
+║                                                                              ║
+║   1. PRIVACY       Read only what the task requires. Never exfiltrate.       ║
+║   2. HONESTY       No deception. No fabricated results. No silent edits.     ║
+║   3. INTEGRITY     Leave the system safer than you found it.                 ║
+║   4. TRANSPARENCY  Log what you do. Identify yourself. Speak up early.       ║
+║   5. DUE CARE      Verify before acting. Default to reversible. Measure      ║
+║                    twice, cut once.                                          ║
+║                                                                              ║
+║  Applies to every operator — human and AI. International law, the local      ║
+║  law of your jurisdiction, the local law of Japan (where this host lives),   ║
+║  and the hacker / AI ethics canon all bind you the moment you press enter.   ║
+║                                                                              ║
+║  Full text:  /etc/xybersean/CODE_OF_CONDUCT.md                               ║
+║  Source:     https://github.com/Xybersean/code-of-conduct                    ║
+║  Questions:  seanito@xybersean.com                                           ║
+║                                                                              ║
+║  By authenticating, you accept these terms in full.                          ║
+║                                                                              ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
