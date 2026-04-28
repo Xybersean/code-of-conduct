@@ -149,10 +149,18 @@ remove_shell_hook() {
     fi
 }
 
+_hostname() {
+    if command -v hostname >/dev/null 2>&1; then hostname
+    elif [ -r /etc/hostname ]; then cat /etc/hostname
+    elif command -v hostnamectl >/dev/null 2>&1; then hostnamectl --static
+    else echo "unknown"
+    fi
+}
+
 do_install() {
     local os="$(detect_os)"
     require_root
-    echo "[install] OS=$os host=$(hostname)"
+    echo "[install] OS=$os host=$(_hostname)"
 
     install_files
     install_sshd_dropin
@@ -179,13 +187,13 @@ do_install() {
             ;;
     esac
 
-    echo "[install] complete on $(hostname)"
+    echo "[install] complete on $(_hostname)"
 }
 
 do_uninstall() {
     local os="$(detect_os)"
     require_root
-    echo "[uninstall] OS=$os host=$(hostname)"
+    echo "[uninstall] OS=$os host=$(_hostname)"
 
     rm -f "$SSHD_DROPIN" && echo "  ✓ removed $SSHD_DROPIN" || true
     rm -rf "$TARGET_DIR" && echo "  ✓ removed $TARGET_DIR" || true
@@ -203,12 +211,12 @@ do_uninstall() {
         linux) reload_sshd_linux ;;
     esac
 
-    echo "[uninstall] complete on $(hostname)"
+    echo "[uninstall] complete on $(_hostname)"
 }
 
 do_check() {
     local os="$(detect_os)"
-    echo "[check] OS=$os host=$(hostname)"
+    echo "[check] OS=$os host=$(_hostname)"
     echo "  files:"
     for f in CODE_OF_CONDUCT.md coc-banner.txt coc-motd.sh; do
         if [ -r "$TARGET_DIR/$f" ]; then echo "    ✓ $TARGET_DIR/$f"
