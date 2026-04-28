@@ -14,10 +14,22 @@ operating on XYBERSEAN infrastructure.
 
 ## Install on a fleet host
 
+### macOS / Linux
+
 ```sh
 git clone https://github.com/Xybersean/code-of-conduct.git
 cd code-of-conduct
 sudo ./install.sh
+```
+
+### Windows
+
+From an **elevated PowerShell** (Run as Administrator):
+
+```powershell
+git clone https://github.com/Xybersean/code-of-conduct.git
+cd code-of-conduct
+.\install.ps1
 ```
 
 The installer is **idempotent** and safe to re-run. It will:
@@ -39,6 +51,29 @@ The installer is **idempotent** and safe to re-run. It will:
 sudo ./install.sh check       # report current state, change nothing
 sudo ./install.sh uninstall   # remove everything cleanly
 ```
+
+PowerShell equivalents:
+
+```powershell
+.\install.ps1 -Action check
+.\install.ps1 -Action uninstall
+```
+
+### Fleet auto-deploy
+
+`deploy-fleet.sh` probes every host, MD5-checks the installed banner
+against the local source, and re-deploys only on missing or stale
+hosts. Safe to run on a cron / launchd schedule.
+
+```sh
+bash deploy-fleet.sh                 # default — Sean-owned boxes
+bash deploy-fleet.sh --include-curtis  # also Curtis's macOS boxes
+                                       # (sudo password read from
+                                       # macOS keychain entry curtis-sudo)
+```
+
+Reference launchd plist (`com.xybersean.coc-fleet-sync`, every 30
+min) lives in the project memory; copy and adapt for your fleet.
 
 ## What gets installed
 
